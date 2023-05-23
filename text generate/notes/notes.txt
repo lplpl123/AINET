@@ -10,3 +10,5 @@ https://blog.csdn.net/qq_34696503/article/details/130172221
 torch的RNN就是out多加了一个维度
 难道说torch.nn.linear不用管输入的是什么维度的
 一个是list，一个是array
+还需要把所有的文本信息都转化为数据
+其实是进行了两步：先把中文转化为指针，然后通过指针再进行embedding

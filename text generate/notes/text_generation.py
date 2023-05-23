@@ -4,34 +4,35 @@ import numpy as np
 import os
 import time
 
-path_to_file = 'C:/Users/p30030010/Desktop/my world/projects/AI-projects/text generate/data/shakespeare.txt'
+path_to_file = 'C:/Users/p30030010/Desktop/my world/projects/AINET/text generate/data/shakespeare.txt'
 
 # 读取并为 py2 compat 解码
 text = open(path_to_file, 'rb').read().decode(encoding='utf-8')
 
 # 文本长度是指文本中的字符个数
-print ('Length of text: {} characters'.format(len(text)))
+# print ('Length of text: {} characters'.format(len(text)))
 
 # 看一看文本中的前 250 个字符
-print(text[:250])
+# print(text[:250])
 
 # 文本中的非重复字符
 vocab = sorted(set(text))
-print ('{} unique characters'.format(len(vocab)))
+# print ('{} unique characters'.format(len(vocab)))
 
 # 创建从非重复字符到索引的映射
 char2idx = {u:i for i, u in enumerate(vocab)}
 idx2char = np.array(vocab)
 
 text_as_int = np.array([char2idx[c] for c in text])
+# text_as_int就是把text里面所有的文字都转换为了index
 
-print('{')
-for char,_ in zip(char2idx, range(20)):
-    print('  {:4s}: {:3d},'.format(repr(char), char2idx[char]))
-print('  ...\n}')
+# print('{')
+# for char,_ in zip(char2idx, range(20)):
+#     print('  {:4s}: {:3d},'.format(repr(char), char2idx[char]))
+# print('  ...\n}')
 
 # 显示文本首 13 个字符的整数映射
-print ('{} ---- characters mapped to int ---- > {}'.format(repr(text[:13]), text_as_int[:13]))
+# print ('{} ---- characters mapped to int ---- > {}'.format(repr(text[:13]), text_as_int[:13]))
 # 设定每个输入句子长度的最大值
 seq_length = 100
 examples_per_epoch = len(text)//seq_length
