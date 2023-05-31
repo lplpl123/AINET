@@ -18,6 +18,7 @@ if __name__ == "__main__":
             action = torch.argmax(action_value).numpy()
             next_s, reward, done, info = env.step(action)
 
-            x, x_dot, theta, theta_dat = next_s
+            next_action_value = dqn.choose_action(next_s)
+            dqn.learn()
 
             break

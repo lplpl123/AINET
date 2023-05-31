@@ -19,3 +19,5 @@ class DQN:
         x = self.eval_net.forward(x)
         # todo
         return x
+
+    def learn(self):
