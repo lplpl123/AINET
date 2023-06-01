@@ -20,4 +20,10 @@ class DQN:
         # todo
         return x
 
-    def learn(self):
+    def learn(self, next_action_value, reward, y_eval):
+        y_target = reward + 0.9 * max(next_action_value)
+        loss = self.loss_func(y_eval, y_target)
+
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
