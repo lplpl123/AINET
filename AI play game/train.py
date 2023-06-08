@@ -21,10 +21,12 @@ if __name__ == "__main__":
             print("---输出当前动作---", action_value)
             action = torch.argmax(action_value).numpy()
             y_eval = action_value[int(action)]
-            next_s, reward, done, info = env.step(action)
+            next_s, r, done, info = env.step(action)
             x, x_dot, theta, theta_dat = next_s
             r1 = (env.x_threshold - abs(x)) / env.x_threshold - 0.8
-            r2 = (env.theta_threshold_radians)
+            r2 = (env.theta_threshold_radians - abs(theta)) / env.theta_threshold_radians - 0.5
+            reward = r1 + r2
+            print("---输出计算后的奖励---", reward)
             next_action_value = dqn.choose_action(next_s)
             dqn.learn(next_action_value, reward, y_eval)
 
