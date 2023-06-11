@@ -1,5 +1,7 @@
 https://blog.csdn.net/qq_31244453/article/details/122038047
 https://zhuanlan.zhihu.com/p/570695189
+https://blog.csdn.net/weixin_44732379/article/details/127821138
+
 我要做的是什么呢？
 立杆子游戏如何实现
 先理解CartPole-v0这个游戏是怎么玩的
